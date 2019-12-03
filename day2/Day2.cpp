@@ -3,66 +3,106 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 constexpr auto SIZE = 512;
 
-void solution1(int* a, int N)
+int run(std::vector<int>&);
+
+int solution1(std::vector<int> a)
 {
-	for (int ip = 0; ip < N; ip += 4)
-	{
-		size_t n1_pos = a[ip + 1];
-		size_t n2_pos = a[ip + 2];
-		size_t res_pos = a[ip + 3];
-		switch (a[ip])
-		{
-		case 1:
-			std::cout << "Op  1: " << a[n1_pos] << " + " << a[n2_pos] << "\n";
-			a[res_pos] = a[n1_pos] + a[n2_pos];
-			break;
-		case 2:
-			std::cout << "Op  2: " << a[n1_pos] << " * " << a[n2_pos] << "\n";
-			a[res_pos] = a[n1_pos] * a[n2_pos];
-			break;
-		case 99:
-			std::cout << "Op 99: Program end.\n";
-			return;
-		default:
-			exit(EXIT_FAILURE);
-		}
-	}
+	// Restore to 1202 program alarm state
+	a[1] = 12;
+	a[2] = 2;
+
+	return run(a);
 
 }
 
-void solution2(int* a)
+std::pair<int,int>* solution2(std::vector<int> a)
 {
+	for (int i = 0; i < 100; i++)
+	{
+		for (int j = 0; j < 100; j++)
+		{
+			std::cout << "Parameters: " << i << ", " << j;
+			
+			std::vector<int> tmp = a;
+			tmp[1] = i; tmp[2] = j;
 
+			int result = run(tmp);
+			std::cout << " Result: " << result << "\n";
+
+			if (result == 19690720)
+			{
+				return new std::pair<int, int>(i, j);
+			}
+		}
+	}
+
+	return new std::pair<int, int>(-1, -1);
+}
+
+int run(std::vector<int> &v)
+{
+	for (int ip = 0; ip < v.size(); ip += 4)
+	{
+		size_t n1_pos = v[ip + 1];
+		size_t n2_pos = v[ip + 2];
+		size_t res_pos = v[ip + 3];
+
+		if (res_pos >= v.size())
+			continue;
+
+		switch (v[ip])
+		{
+		case 1:
+			//std::cout << "Op  1: " << n1_pos << " + " << n2_pos << " = " << a[n1_pos] + a[n2_pos] << "\t-> " << res_pos << "\n";
+			v[res_pos] = v[n1_pos] + v[n2_pos];
+			break;
+		case 2:
+			//std::cout << "Op  2: " << n1_pos << " * " << n2_pos << " = " << a[n1_pos] * a[n2_pos] << "\t-> " << res_pos << "\n";
+			v[res_pos] = v[n1_pos] * v[n2_pos];
+			break;
+		case 99:
+			//std::cout << "Op 99: Program end.\n";
+			return v[0];
+		}
+	}
+
+	return v[0];
 }
 
 int main()
 {
 	// Tests
-	int test[] = { 1,0,0,0,99 };
+	std::vector<int> test = { 1,0,0,0,99 };
 
-	// Input variables
+	// Read from file
+	std::ifstream file;
+	file.open("input.txt");
+
+	std::vector<int> numbers;
+	while (file.good())
+	{
+		char s[10];
+		file.getline(s, 4, ',');
+		numbers.push_back(atoi(s));
+	}
+
+	file.close();
+
+	// Parameters
 	int n = 0;
-	int N = 5;
-	int* input = test;
-
-	// Print input
-	std::cout << "Input: ";
-	for (int i = 0; i < N; i++)
-		std::cout << input[i];
-	std::cout << "\n";
+	std::vector<int> &input = numbers;
 
 	// Do
-	solution1(input, N);
+	int res1 = solution1(input);
+	std::pair<int, int> *res2 = solution2(input);
 
-	// Print output
-	std::cout << "Output: ";
-	for (int i = 0; i < N; i++)
-		std::cout << input[i];
-	std::cout << "\n";
-	std::cout << "result: " << input[0] << "\n";
+	// Print results
+	std::cout << "result1: " << res1 << "\n";
+	std::cout << "result2: " << res2->first * 100 + res2->second << "\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
