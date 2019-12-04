@@ -43,11 +43,5 @@ public:
 	
 	friend std::ostream& operator<<(std::ostream& out, const Node& n);
 
-	struct node_compare
-	{
-		bool operator() (const Node& lhs, const Node& rhs) const {
-			return lhs.x() == rhs.x();
-		}
-	};
 };
 
