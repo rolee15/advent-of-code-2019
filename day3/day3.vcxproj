@@ -148,6 +148,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="day3.cpp" />
+    <ClCompile Include="Intersection.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Wire.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Intersection.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="Wire.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
