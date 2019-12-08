@@ -19,7 +19,7 @@ int main()
     
     long sum = 0;
     long add_sum = 0;
-    for (int i = 0; i < numbers.size(); i++)
+    for (unsigned int i = 0; i < numbers.size(); i++)
     {
         sum += numbers[i] / 3 - 2;        
 

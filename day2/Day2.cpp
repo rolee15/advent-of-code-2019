@@ -45,7 +45,7 @@ std::pair<int,int>* solution2(std::vector<int> a)
 
 int run(std::vector<int> &v)
 {
-	for (int ip = 0; ip < v.size(); ip += 4)
+	for (unsigned int ip = 0; ip < v.size(); ip += 4)
 	{
 		size_t n1_pos = v[ip + 1];
 		size_t n2_pos = v[ip + 2];
