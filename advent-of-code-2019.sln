@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "day2", "day2\day2.vcxproj", "{BE85D7B0-5396-4C48-BA60-E7D4521617E6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "day2", "Day2\day2.vcxproj", "{BE85D7B0-5396-4C48-BA60-E7D4521617E6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "day3", "day3\day3.vcxproj", "{AE7E4DF3-59BA-483E-B369-DD6C3582B19B}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "day6", "day6\day6.vcxproj", "{12B2FA96-F8B9-4981-BD0A-1D9D37199F2C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "day7", "day7\day7.vcxproj", "{5F199749-5DA3-4121-92D3-30A6F3125EDD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "day8", "day8\day8.vcxproj", "{B1DE3946-5107-4084-ABC3-280A0EFB4C87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,14 @@ Global
 		{5F199749-5DA3-4121-92D3-30A6F3125EDD}.Release|x64.Build.0 = Release|x64
 		{5F199749-5DA3-4121-92D3-30A6F3125EDD}.Release|x86.ActiveCfg = Release|Win32
 		{5F199749-5DA3-4121-92D3-30A6F3125EDD}.Release|x86.Build.0 = Release|Win32
+		{B1DE3946-5107-4084-ABC3-280A0EFB4C87}.Debug|x64.ActiveCfg = Debug|x64
+		{B1DE3946-5107-4084-ABC3-280A0EFB4C87}.Debug|x64.Build.0 = Debug|x64
+		{B1DE3946-5107-4084-ABC3-280A0EFB4C87}.Debug|x86.ActiveCfg = Debug|Win32
+		{B1DE3946-5107-4084-ABC3-280A0EFB4C87}.Debug|x86.Build.0 = Debug|Win32
+		{B1DE3946-5107-4084-ABC3-280A0EFB4C87}.Release|x64.ActiveCfg = Release|x64
+		{B1DE3946-5107-4084-ABC3-280A0EFB4C87}.Release|x64.Build.0 = Release|x64
+		{B1DE3946-5107-4084-ABC3-280A0EFB4C87}.Release|x86.ActiveCfg = Release|Win32
+		{B1DE3946-5107-4084-ABC3-280A0EFB4C87}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
