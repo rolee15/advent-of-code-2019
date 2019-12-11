@@ -5,6 +5,8 @@
 Layer::Layer(int width, int height)
 	: _width(width), _height(height)
 {
+	for (int i = 0; i < _height * _width; ++i)
+		_pixels.push_back(2);
 }
 
 void Layer::setPixels(std::vector<int>& p)
@@ -27,6 +29,11 @@ int Layer::getNumberCount(int n)
 int Layer::getPixel(int i, int j)
 {
 	return _pixels[i * _width + j];
+}
+
+void Layer::setPixel(int i, int j, int n)
+{
+	_pixels[i * _width + j] = n;
 }
 
 Layers::Layers(const char* input, int width, int height)
@@ -76,8 +83,22 @@ Layer* Layers::findLeastZeroes()
 
 Layer* Layers::combine()
 {
-	// TODO: implement
-	return nullptr;
+	Layer* l = new Layer(_width, _height);
+	for (int i = 0; i < _height; ++i)
+	{
+		for (int j = 0; j < _width; ++j)
+		{
+			int ind = 0;
+			while (_layers[ind]->getPixel(i, j) == 2)
+			{
+				ind++;
+			}
+
+			l->setPixel(i, j, _layers[ind]->getPixel(i, j));
+		}
+	}
+
+	return l;
 }
 
 std::ostream& operator<<(std::ostream& out, const Layer& l)

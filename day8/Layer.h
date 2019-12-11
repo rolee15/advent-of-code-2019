@@ -19,6 +19,8 @@ public:
 
 	int getPixel(int i, int j);
 
+	void setPixel(int i, int j, int n);
+
 	friend std::ostream& operator<<(std::ostream& out, const Layer& l);
 };
 
